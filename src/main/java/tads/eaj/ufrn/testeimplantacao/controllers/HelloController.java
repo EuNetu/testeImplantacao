@@ -30,9 +30,9 @@ public class HelloController {
         }
 
         if (connection != null) {
-            response.getWriter().append("A conexão com o banco foi realizada!");
+            response.getWriter().append(" A conexão com o banco foi realizada!");
         } else {
-            response.getWriter().append("A conexão com o banco falhou!");
+            response.getWriter().append(" A conexão com o banco falhou!");
         }
 
         try {
