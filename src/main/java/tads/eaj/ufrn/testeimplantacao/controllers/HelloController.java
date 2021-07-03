@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.testeimplantacao.controller;
+package tads.eaj.ufrn.testeimplantacao.controllers;
 
 
 import org.springframework.stereotype.Controller;
