@@ -17,6 +17,14 @@ public class CodeSQL {
     private static final String INSERT = "ISERT INTO vendas (\"modelo\",\"marca\",\"preco\",\"anolancamento\",\"ram\") VALUES (?,?,?,?,?,?)";
     private static final String SELECT = "SELECT * FROM vendas";
 
+    public static void criartabela() throws SQLException, URISyntaxException {
+        Connection conexao = ConectaBanco.getConnection();
+        Statement st = conexao.createStatement();
+        st.execute(DATABASE);
+        conexao.close();
+        System.out.println("DEU BOM A TABELA");
+
+    }
 
     public boolean inserirDados(Celular c) throws SQLException{
         try{
