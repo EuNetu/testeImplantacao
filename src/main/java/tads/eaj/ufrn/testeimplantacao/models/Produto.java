@@ -6,8 +6,6 @@ public class Produto {
     private double preco;
     private String anolancamento;
     private String ram;
-    private int estoque;
-    private int quantidade;
 
     public Produto(String modelo, String marca, double preco, String anolancamento, String ram, int estoque) {
         super();
@@ -16,8 +14,6 @@ public class Produto {
         this.preco = preco;
         this.anolancamento = anolancamento;
         this.ram = ram;
-        this.estoque = estoque;
-        this.quantidade = 0;
     }
 
     public String getModelo() {
@@ -60,17 +56,5 @@ public class Produto {
         this.ram = ram;
     }
 
-    public int getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(int estoque) {
-        this.estoque = estoque;
-    }
-    public void adicionarNoEstoque(){
-
-    }
-    public void retirarDoEstoque(){
-
-    }
 }
+
