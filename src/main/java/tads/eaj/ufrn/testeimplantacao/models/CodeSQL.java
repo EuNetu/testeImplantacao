@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CodeSQL {
     private static final String DATABASE = "CREATE TABLE vendas (\n" +
-                    "\\tid SERIAL PRIMARY KEY NOT NULL,\n" +
+                    "\tid SERIAL PRIMARY KEY NOT NULL,\n" +
                     "\tmodelo varchar(50) NOT NULL,\n" +
                     "\tmarca VARCHAR(50) NOT NULL,\n" +
                     "\tpreco DECIMAL(7, 2) NOT NULL,\n" +
