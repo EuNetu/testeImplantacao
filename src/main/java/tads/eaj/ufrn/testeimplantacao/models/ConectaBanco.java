@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.testeimplantacao.controllers;
+package tads.eaj.ufrn.testeimplantacao.models;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;

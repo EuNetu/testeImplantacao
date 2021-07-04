@@ -1,14 +1,13 @@
 package tads.eaj.ufrn.testeimplantacao.models;
 
-public class Produto {
+public class Celular {
     private String modelo;
     private String marca;
     private double preco;
-    private String anolancamento;
-    private String ram;
+    private int anolancamento;
+    private int ram;
 
-    public Produto(String modelo, String marca, double preco, String anolancamento, String ram, int estoque) {
-        super();
+    public Celular(String modelo, String marca, double preco, int anolancamento, int ram) {
         this.modelo = modelo;
         this.marca = marca;
         this.preco = preco;
@@ -40,21 +39,20 @@ public class Produto {
         this.preco = preco;
     }
 
-    public String getAnolancamento() {
+    public int getAnolancamento() {
         return anolancamento;
     }
 
-    public void setAnolancamento(String anolancamento) {
+    public void setAnolancamento(int anolancamento) {
         this.anolancamento = anolancamento;
     }
 
-    public String getRam() {
+    public int getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(int ram) {
         this.ram = ram;
     }
-
 }
 

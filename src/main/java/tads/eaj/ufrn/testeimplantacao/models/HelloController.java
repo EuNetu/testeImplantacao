@@ -1,9 +1,10 @@
-package tads.eaj.ufrn.testeimplantacao.controllers;
+package tads.eaj.ufrn.testeimplantacao.models;
 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import tads.eaj.ufrn.testeimplantacao.models.ConectaBanco;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
