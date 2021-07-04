@@ -23,7 +23,7 @@ public class Cliente {
         CodeSQL code = new CodeSQL();
         ArrayList<Celular> cel = code.mostrarTabela();
 
-        response.getWriter().println("<table>" +
+        response.getWriter().println( "<table>" +
                 "        <tr>" +
                 "            <th> Modelo </th>" +
                 "            <th> Marca </th>" +
