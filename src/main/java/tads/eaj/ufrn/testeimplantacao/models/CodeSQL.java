@@ -5,31 +5,31 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CodeSQL {
-    private static final String DATABASE = "CREATE TABLE vendas (\n" +
-                    "\tid SERIAL PRIMARY KEY NOT NULL,\n" +
-                    "\tmodelo varchar(50) NOT NULL,\n" +
-                    "\tmarca VARCHAR(50) NOT NULL,\n" +
-                    "\tpreco DECIMAL(7, 2) NOT NULL,\n" +
-                    "\tanolancamento int NOT NULL,\n" +
-                    "\tram int NOT NULL,\n" +
-                    "\testoque int NOT NULL\n" +
+    private final String DATABASE = "CREATE TABLE vendas (" +
+                    "id SERIAL PRIMARY KEY NOT NULL," +
+                    "modelo varchar(50) NOT NULL," +
+                    "marca VARCHAR(50) NOT NULL," +
+                    "preco DECIMAL(7, 2) NOT NULL," +
+                    "anolancamento int NOT NULL," +
+                    "ram int NOT NULL" +
                     ")";
-    private static final String INSERT = "ISERT INTO vendas (\"modelo\",\"marca\",\"preco\",\"anolancamento\",\"ram\") VALUES (?,?,?,?,?,?)";
-    private static final String SELECT = "SELECT * FROM vendas";
+    private final String DADO_INSERT = "INSERT INTO vendas (MODELO,MARCA,PRECO," +
+            "ANOLANCAMENTO,RAM) VALUES (?,?,?,?,?)";
+    private final String SELECT = "SELECT * FROM vendas";
 
-    public static void criartabela() throws SQLException, URISyntaxException {
+    public void criartabela() throws SQLException, URISyntaxException {
         Connection conexao = ConectaBanco.getConnection();
         Statement st = conexao.createStatement();
         st.execute(DATABASE);
-        conexao.close();
         System.out.println("DEU BOM A TABELA");
+        conexao.close();
 
     }
 
-    public boolean inserirDados(Celular c) throws SQLException{
+    public void inserirDados(Celular c) throws SQLException{
         try{
             Connection conexao = ConectaBanco.getConnection();
-            PreparedStatement psi = conexao.prepareStatement(INSERT);
+            PreparedStatement psi = conexao.prepareStatement(DADO_INSERT);
             psi.setString(1,c.getModelo());
             psi.setString(2, c.getMarca());
             psi.setDouble(3,c.getPreco());
@@ -38,16 +38,14 @@ public class CodeSQL {
             psi.execute();
             conexao.close();
             System.out.println("DEU BOM");
-            return true;
         } catch (URISyntaxException e) {
             e.printStackTrace();
             System.out.println("DEU RUIM");
-            return false;
         }
     }
 
 
-    public static ArrayList<Celular> mostrarTabela(){
+    public ArrayList<Celular> mostrarTabela(){
         ArrayList<Celular> lista = new ArrayList<>();
         try{
             Connection conexao = ConectaBanco.getConnection();
@@ -65,10 +63,8 @@ public class CodeSQL {
             }
             conexao.close();
             System.out.println("funcionou a lista");
-        } catch (SQLException throwables) {
+        } catch (SQLException | URISyntaxException throwables) {
             throwables.printStackTrace();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
         }
         return lista;
     }
