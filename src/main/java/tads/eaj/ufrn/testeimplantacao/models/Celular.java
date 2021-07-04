@@ -1,6 +1,7 @@
 package tads.eaj.ufrn.testeimplantacao.models;
 
 public class Celular {
+    private int id;
     private String modelo;
     private String marca;
     private double preco;
@@ -13,6 +14,22 @@ public class Celular {
         this.preco = preco;
         this.anolancamento = anolancamento;
         this.ram = ram;
+    }
+    public Celular(int id,String modelo, String marca, double preco, int anolancamento, int ram) {
+        this.id = id;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.preco = preco;
+        this.anolancamento = anolancamento;
+        this.ram = ram;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getModelo() {

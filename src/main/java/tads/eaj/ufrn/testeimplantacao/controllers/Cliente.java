@@ -30,6 +30,7 @@ public class Cliente {
                 "            <th> Preço </th>" +
                 "            <th> Ano de lançamento </th>" +
                 "            <th> Ram </th>" +
+                "            <th> Carrinho </th>" +
                 "        </tr>"
         );
         for (var aux: cel){
@@ -39,6 +40,7 @@ public class Cliente {
                     "        <td>" + aux.getPreco()  + "</td>" +
                     "        <td>" + aux.getAnolancamento()  + "</td>" +
                     "        <td>" + aux.getRam()  + "</td>" +
+                    "        <td><a href=\"/adicionarCarrinho?id=/" + aux.getId() + "\">Adicionar</a></td>" +
                     "    </tr>"
 
             );

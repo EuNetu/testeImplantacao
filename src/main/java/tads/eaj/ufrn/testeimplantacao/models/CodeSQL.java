@@ -15,7 +15,7 @@ public class CodeSQL {
                     ")";
     private final String DADO_INSERT = "INSERT INTO vendas (MODELO,MARCA,PRECO," +
             "ANOLANCAMENTO,RAM) VALUES (?,?,?,?,?)";
-    private final String SELECT = "SELECT * FROM vendas";
+    private final String SELECT = "SELECT * FROM vendas ORDER BY id";
 
     public void criartabela() throws SQLException, URISyntaxException {
         Connection conexao = ConectaBanco.getConnection();
@@ -53,6 +53,7 @@ public class CodeSQL {
             ResultSet result = psi.executeQuery();
             while(result.next()){
                 Celular pro = new Celular(
+                        result.getInt("id"),
                         result.getString("modelo"),
                         result.getString("marca"),
                         result.getDouble("preco"),
@@ -65,6 +66,7 @@ public class CodeSQL {
             System.out.println("funcionou a lista");
         } catch (SQLException | URISyntaxException throwables) {
             throwables.printStackTrace();
+            System.out.println("Não listou");
         }
         return lista;
     }
