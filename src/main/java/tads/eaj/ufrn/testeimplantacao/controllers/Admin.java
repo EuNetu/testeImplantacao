@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/admin")
@@ -34,7 +36,10 @@ public class Admin {
                 "                           " +
                 "<button type=submit value=submit> SUBMIT</buttonh>" +
                 "</form>");
-        Cookie biscoito = new Cookie("visita", "deubom");
+        Date dataDaSessao = new Date();
+        var dataDoAcesso = new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss");
+        var dataFormatada = dataDoAcesso.format(dataDaSessao);
+        Cookie biscoito = new Cookie("visita", dataFormatada);
         biscoito.setMaxAge(86400);
         response.addCookie(biscoito);
     }
