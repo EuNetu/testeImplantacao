@@ -16,6 +16,7 @@ public class CodeSQL {
     private final String DADO_INSERT = "INSERT INTO vendas (MODELO,MARCA,PRECO," +
             "ANOLANCAMENTO,RAM) VALUES (?,?,?,?,?)";
     private final String SELECT = "SELECT * FROM vendas ORDER BY id";
+    private final String BUSCAR_POR_ID = "SELECT * FROM vendas WHERE ID=?";
 
     public void criartabela() throws SQLException, URISyntaxException {
         Connection conexao = ConectaBanco.getConnection();
@@ -69,5 +70,30 @@ public class CodeSQL {
             System.out.println("Não listou");
         }
         return lista;
+    }
+    public Celular buscarPorID(int id) throws SQLException, URISyntaxException {
+        Celular cel = null;
+        try{
+            Connection conexao = ConectaBanco.getConnection();
+            PreparedStatement psi = conexao.prepareStatement(BUSCAR_POR_ID);
+            psi.setInt(1,id);
+            ResultSet result = psi.executeQuery();
+            if (result.next()){
+                cel = new Celular(
+                        result.getInt("id"),
+                        result.getString("modelo"),
+                        result.getString("marca"),
+                        result.getDouble("preco"),
+                        result.getInt("anolancamento"),
+                        result.getInt("ram")
+                );
+            }
+            conexao.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return cel;
     }
 }

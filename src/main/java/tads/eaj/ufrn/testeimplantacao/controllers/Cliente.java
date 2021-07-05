@@ -40,12 +40,16 @@ public class Cliente {
                     "        <td>" + aux.getPreco()  + "</td>" +
                     "        <td>" + aux.getAnolancamento()  + "</td>" +
                     "        <td>" + aux.getRam()  + "</td>" +
-                    "        <td><a href=\"/adicionarCarrinho?id=/" + aux.getId() + "\">Adicionar</a></td>" +
+                    "        <td><a href=\"/adicionarCarrinho?id=" + aux.getId() + "\">Adicionar</a></td>" +
                     "    </tr>"
 
             );
         }
         response.getWriter().println("</table>");
+        response.getWriter().println("</br>");
+        response.getWriter().println("</br>");
+        response.getWriter().println("<h6>clique para ver seu carrinho: </h6>");
+        response.getWriter().println("<a href= /verCarrinho> Meu carrinnho</a> ");
     }
 
 }
