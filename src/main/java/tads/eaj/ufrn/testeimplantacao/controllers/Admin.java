@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import tads.eaj.ufrn.testeimplantacao.models.Celular;
 import tads.eaj.ufrn.testeimplantacao.models.CodeSQL;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -33,6 +34,9 @@ public class Admin {
                 "                           " +
                 "<button type=submit value=submit> SUBMIT</buttonh>" +
                 "</form>");
+        Cookie biscoito = new Cookie("visita", "deubom");
+        biscoito.setMaxAge(86400);
+        response.addCookie(biscoito);
     }
     @RequestMapping(value = "/cadastra",method = RequestMethod.POST)
     public void inserirDoFormulario(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
